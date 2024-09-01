@@ -20,6 +20,8 @@ namespace Dragons
     }
 
     public static List<string> Names = new List<string> { "Strength", "Intelligence", "Wisdom", "Dexterity", "Constitution", "Charisma" };
+    public static List<string> ShortNames = new List<string> { "STR", "INT", "WIS", "DEX", "CON", "CHA" };
+
   }
 
   public class Ability
@@ -29,6 +31,11 @@ namespace Dragons
     public string Name
     {
       get { return AbilityTypes.Names[(int)mType]; }
+    }
+
+    public string ShortName
+    {
+      get { return AbilityTypes.ShortNames[(int)mType]; }
     }
 
     public AbilityTypes.Type Type
@@ -95,7 +102,7 @@ namespace Dragons
 
     Type mType;
     string mName = "";
-    AbilityTypes.Type mPrimeStat;
+    Ability mPrimeStat;
 
     public string Name
     {
@@ -107,12 +114,12 @@ namespace Dragons
       get { return mType; }
     }
 
-    public AbilityTypes.Type PrimeStat
+    public Ability PrimeStat
     {
       get { return mPrimeStat; }
     }
 
-    public Class(Type type, string name, AbilityTypes.Type primeStat)
+    public Class(Type type, string name, Ability primeStat)
     {
       mType = type;
       mName = name;

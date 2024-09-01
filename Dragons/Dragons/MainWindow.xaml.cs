@@ -26,9 +26,9 @@ namespace Dragons
       {
         mSelectedCharacter = value;
         OnPropertyChanged(new PropertyChangedEventArgs("SelectedCharacter"));
+        OnPropertyChanged(new PropertyChangedEventArgs("PrimeStatString"));
         OnPropertyChanged(new PropertyChangedEventArgs("GoldString"));
         OnPropertyChanged(new PropertyChangedEventArgs("HPString"));
-
       }
     }
 
@@ -49,6 +49,11 @@ namespace Dragons
     public string HPString
     {
       get { return SelectedCharacter != null ? $"HP: {SelectedCharacter.HP}" : ""; }
+    }
+
+    public string PrimeStatString
+    {
+      get { return SelectedCharacter != null ? $"Prime Stat: {SelectedCharacter.Class.PrimeStat.ShortName}" : ""; }
     }
 
     public MainWindow()
@@ -72,15 +77,6 @@ namespace Dragons
       mRaces.Add(new Race(Race.Type.Halfling, "Halfling", "Defensive Bonus"));
       mRaces.Add(new Race(Race.Type.Human, "Human", "None"));
 
-      // Classes
-      mClasses.Add(new Class(Class.Type.Bard, "Bard", Dragons.AbilityTypes.Type.CHA));
-      mClasses.Add(new Class(Class.Type.Cleric, "Cleric", AbilityTypes.Type.WIS));
-      mClasses.Add(new Class(Class.Type.Druid, "Druid", AbilityTypes.Type.WIS));
-      mClasses.Add(new Class(Class.Type.Fighter, "Fighter", AbilityTypes.Type.STR));
-      mClasses.Add(new Class(Class.Type.Ranger, "Ranger", AbilityTypes.Type.STR));
-      mClasses.Add(new Class(Class.Type.Thief, "Thief", AbilityTypes.Type.DEX));
-      mClasses.Add(new Class(Class.Type.Wizard, "Wizard", AbilityTypes.Type.INT));
-
       // Abilities
       mAbilities.Add(new Ability(AbilityTypes.Type.STR));
       mAbilities.Add(new Ability(AbilityTypes.Type.INT));
@@ -89,6 +85,14 @@ namespace Dragons
       mAbilities.Add(new Ability(AbilityTypes.Type.CON));
       mAbilities.Add(new Ability(AbilityTypes.Type.CHA));
 
+      // Classes
+      mClasses.Add(new Class(Class.Type.Bard, "Bard", GetAbility(AbilityTypes.Type.CHA)));
+      mClasses.Add(new Class(Class.Type.Cleric, "Cleric", GetAbility(AbilityTypes.Type.WIS)));
+      mClasses.Add(new Class(Class.Type.Druid, "Druid", GetAbility(AbilityTypes.Type.WIS)));
+      mClasses.Add(new Class(Class.Type.Fighter, "Fighter", GetAbility(AbilityTypes.Type.STR)));
+      mClasses.Add(new Class(Class.Type.Ranger, "Ranger", GetAbility(AbilityTypes.Type.STR)));
+      mClasses.Add(new Class(Class.Type.Thief, "Thief", GetAbility(AbilityTypes.Type.DEX)));
+      mClasses.Add(new Class(Class.Type.Wizard, "Wizard", GetAbility(AbilityTypes.Type.INT)));
 
       // Characters
       mCharacters.Add(new Character("Olga", 
@@ -115,6 +119,45 @@ namespace Dragons
           new AbilityScore(GetAbility(AbilityTypes.Type.CON), 10, 9),
           new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 12, 12)
           }, 2, 120));
+
+      mCharacters.Add(new Character("Rocko",
+        GetRace(Race.Type.Gnome),
+        GetClass(Class.Type.Wizard),
+        new List<AbilityScore>
+        {
+          new AbilityScore(GetAbility(AbilityTypes.Type.STR), 13, 13),
+          new AbilityScore(GetAbility(AbilityTypes.Type.INT), 12, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.WIS), 12, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.DEX), 9, 9),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CON), 9, 9),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 10, 10)
+          }, 1, 120));
+
+      mCharacters.Add(new Character("Frodine",
+        GetRace(Race.Type.Halfling),
+        GetClass(Class.Type.Fighter),
+        new List<AbilityScore>
+        {
+          new AbilityScore(GetAbility(AbilityTypes.Type.STR), 12, 11),
+          new AbilityScore(GetAbility(AbilityTypes.Type.INT), 15, 15),
+          new AbilityScore(GetAbility(AbilityTypes.Type.WIS), 15, 15),
+          new AbilityScore(GetAbility(AbilityTypes.Type.DEX), 11, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CON), 10, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 10, 10)
+        }, 2, 90));
+
+      mCharacters.Add(new Character("Bob",
+        GetRace(Race.Type.Human),
+        GetClass(Class.Type.Ranger),
+        new List<AbilityScore>
+        {
+          new AbilityScore(GetAbility(AbilityTypes.Type.STR), 12, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.INT), 12, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.WIS), 11, 11),
+          new AbilityScore(GetAbility(AbilityTypes.Type.DEX), 11, 11),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CON), 5, 5),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 14, 14)
+          }, 3, 110));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

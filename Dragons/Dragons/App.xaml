@@ -4,12 +4,12 @@
              xmlns:local="clr-namespace:Dragons"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="MainPanelBackground">LightBlue</SolidColorBrush>
+        <SolidColorBrush x:Key="MainPanelBackground">DarkGray</SolidColorBrush>
         <SolidColorBrush x:Key="InfoPanelBackground">LightGray</SolidColorBrush>
         <SolidColorBrush x:Key="ListViewBackground">LightGray</SolidColorBrush>
-        <SolidColorBrush x:Key="ButtonBackground">DarkGray</SolidColorBrush>
-        <SolidColorBrush x:Key="ButtonText">Gray</SolidColorBrush>
-        <SolidColorBrush x:Key="Highlight">LightGray</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonBackground">LightGray</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonText">DarkGray</SolidColorBrush>
+        <SolidColorBrush x:Key="Highlight">LightBlue</SolidColorBrush>
         <SolidColorBrush x:Key="BorderColor">DarkGray</SolidColorBrush>
         <FontFamily x:Key="DefaultFontFamily">Cooper Black</FontFamily>
 
@@ -47,7 +47,19 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-            
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="SectionHeaderText">
+            <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}"/>
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="HeaderText">
+            <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}"/>
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
         <local:PercentageConverter x:Key="PercentageConverter" />
     </Application.Resources>
 </Application>
