@@ -108,6 +108,45 @@ namespace Dragons
           new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 14, 13)
         }, 6, 70));
 
+      mCharacters.Add(new Character("Bardsbain",
+        GetRace(Race.Type.Dwarf),
+        GetClass(Class.Type.Bard),
+        new List<AbilityScore>
+        {
+          new AbilityScore(GetAbility(AbilityTypes.Type.STR), 9, 9),
+          new AbilityScore(GetAbility(AbilityTypes.Type.INT), 12, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.WIS), 9, 9),
+          new AbilityScore(GetAbility(AbilityTypes.Type.DEX), 13, 13),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CON), 9, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 16, 15)
+        }, 1, 90));
+
+      mCharacters.Add(new Character("Aldorf",
+        GetRace(Race.Type.Dwarf),
+        GetClass(Class.Type.Cleric),
+        new List<AbilityScore>
+        {
+          new AbilityScore(GetAbility(AbilityTypes.Type.STR), 10, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.INT), 6, 6),
+          new AbilityScore(GetAbility(AbilityTypes.Type.WIS), 11, 11),
+          new AbilityScore(GetAbility(AbilityTypes.Type.DEX), 8, 8),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CON), 9, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 12, 11)
+        }, 4, 80));
+
+      mCharacters.Add(new Character("Thorin",
+        GetRace(Race.Type.Dwarf),
+        GetClass(Class.Type.Thief),
+        new List<AbilityScore>
+        {
+          new AbilityScore(GetAbility(AbilityTypes.Type.STR), 10, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.INT), 10, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.WIS), 12, 12),
+          new AbilityScore(GetAbility(AbilityTypes.Type.DEX), 9, 9),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CON), 9, 10),
+          new AbilityScore(GetAbility(AbilityTypes.Type.CHA), 13, 12)
+          }, 4, 170));
+
       mCharacters.Add(new Character("Elfwyn",
         GetRace(Race.Type.Elf), GetClass(Class.Type.Druid),
         new List<AbilityScore>

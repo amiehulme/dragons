@@ -11,7 +11,7 @@
         <SolidColorBrush x:Key="ButtonText">DarkGray</SolidColorBrush>
         <SolidColorBrush x:Key="Highlight">LightBlue</SolidColorBrush>
         <SolidColorBrush x:Key="BorderColor">DarkGray</SolidColorBrush>
-        <FontFamily x:Key="DefaultFontFamily">Cooper Black</FontFamily>
+        <FontFamily x:Key="DefaultFontFamily">Arial Rounded MT Bold</FontFamily>
 
         <Style TargetType="{x:Type Button}" x:Key="RoundedButton">
             <Setter Property="Background" Value="{StaticResource ButtonBackground}"/>

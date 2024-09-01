@@ -150,6 +150,27 @@ namespace Dragons
         get { return mModifiedValue; }
       }
 
+      public int RaceModifier
+      {
+        get { return ModifiedValue - BaseValue; }
+      }
+
+      public string DisplayString
+      {
+        get 
+        {
+          if (RaceModifier != 0)
+          {
+            return $"{Ability.Name} ({Ability.ShortName}): {ModifiedValue} (Base: {BaseValue}, Race Modifier: {RaceModifier})";
+          }
+          else
+          {
+            return $"{Ability.Name} ({Ability.ShortName}): {ModifiedValue}";
+          }
+        }
+        //get { return $"{Ability.Name} ({Ability.ShortName}): Base {BaseValue}, Race Modifier {RaceModifier}, Final {ModifiedValue}"; }
+      }
+
       public AbilityScore(Ability ability, int baseVal, int modifiedVal)
       {
         mAbility = ability;
