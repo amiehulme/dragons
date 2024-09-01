@@ -1,16 +1,6 @@
-﻿using Microsoft.Windows.Themes;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.TextFormatting;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static Dragons.Character;
 
 namespace Dragons
@@ -18,7 +8,7 @@ namespace Dragons
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
-  public partial class MainWindow : Window, System.ComponentModel.INotifyPropertyChanged
+  public partial class MainWindow : Window, INotifyPropertyChanged
   {
     public int mNameTextSize = 18;
 
@@ -36,6 +26,9 @@ namespace Dragons
       {
         mSelectedCharacter = value;
         OnPropertyChanged(new PropertyChangedEventArgs("SelectedCharacter"));
+        OnPropertyChanged(new PropertyChangedEventArgs("GoldString"));
+        OnPropertyChanged(new PropertyChangedEventArgs("HPString"));
+
       }
     }
 
@@ -46,6 +39,16 @@ namespace Dragons
     public List<Character> Characters
     {
       get { return mCharacters; }
+    }
+
+    public string GoldString
+    {
+      get { return SelectedCharacter != null ? $"GOLD: {SelectedCharacter.Gold}" : ""; }
+    }
+
+    public string HPString
+    {
+      get { return SelectedCharacter != null ? $"HP: {SelectedCharacter.HP}" : ""; }
     }
 
     public MainWindow()
@@ -127,12 +130,11 @@ namespace Dragons
     {
       int index = CharacterList.SelectedIndex;
       SelectedCharacter = Characters[index];
-      //SelectionSFXPlayer.Play();
     }
 
     private void PlayButton_Click(object sender, RoutedEventArgs e)
     {
-
+      //TODO: This would open the game with your selected character
     }
 
     private Race GetRace(Race.Type type)
