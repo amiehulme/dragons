@@ -1,0 +1,75 @@
+﻿<Window x:Class="Dragons.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dragons"
+        mc:Ignorable="d"
+        Title="Dragons and Dungeons" 
+        WindowStartupLocation="CenterScreen"
+        Width="{x:Static SystemParameters.MaximizedPrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.MaximizedPrimaryScreenHeight}" 
+        Background="{StaticResource MainPanelBackground}">
+    <DockPanel x:Name="Main" LastChildFill="True">
+        <Canvas Background="{StaticResource MainPanelBackground}" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.3, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualWidth}"
+          Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.9, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualHeight}" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <DockPanel x:Name="SelectionPanel" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.9, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Canvas}},Path=ActualWidth}"
+          Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=1.0, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Canvas}},Path=ActualHeight}" HorizontalAlignment="Left" Canvas.Left="24" VerticalAlignment="Center">
+                <ListView x:Name="CharacterList" Background="{StaticResource ListViewBackground}" ItemsSource="{Binding Characters}" SelectionChanged="ListView_SelectionChanged" HorizontalContentAlignment="Stretch">
+                    <ListView.ItemTemplate >
+                        <DataTemplate DataType="local:Character">
+                            <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="2" CornerRadius="2">
+                                <StackPanel Orientation="Horizontal" Height="70" >
+                                    <Border Style="{StaticResource IconBorder}">
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding DefaultPortrait}" FontSize="18" FontFamily="{StaticResource DefaultFontFamily}"/>
+                                    </Border>
+                                    <Rectangle Width="10" Height="70" />
+                                    <TextBlock Text="{Binding Name}" FontSize="18" VerticalAlignment="Center" FontFamily="{StaticResource DefaultFontFamily}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </DockPanel>
+        </Canvas>
+        <DockPanel x:Name="RightPanel" MinWidth="500" LastChildFill="True">
+            <Canvas DockPanel.Dock="Bottom" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=1.0, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DockPanel}},Path=ActualWidth}"
+          Height="10" />
+            <DockPanel DockPanel.Dock="Bottom" MinHeight="55">
+                <Button x:Name="PlayButton" MinWidth="200" MinHeight="55" Style="{DynamicResource RoundedButton}" HorizontalAlignment="Center" Click="PlayButton_Click">
+                    <TextBlock Text="Play" ToolTip="Start the Game" FontSize="{Binding NameTextSize}" FontFamily="{StaticResource DefaultFontFamily}" />
+                </Button>
+            </DockPanel>
+            <DockPanel x:Name="CharacterPanel">
+                <Border CornerRadius="4">
+                    <StackPanel Width="400" Height="800" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{StaticResource InfoPanelBackground}">
+                        <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="1" >
+                            <StackPanel Orientation="Horizontal" Height="100" >
+                                <DockPanel Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.5, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type StackPanel}},Path=ActualWidth}"
+Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=1.0, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type StackPanel}},Path=ActualHeight}" >
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.8, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DockPanel}},Path=ActualWidth}">
+                                        <Border Width="64" Height="64" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" Canvas.Left="10" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <Rectangle Fill="White" Width="64" Height="64" />
+                                        </Border>
+                                        <Rectangle Width="20" />
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="{Binding NameTextSize}" FontFamily="{StaticResource DefaultFontFamily}" Text="{Binding SelectedCharacter.Race.Name}" />
+                                    </StackPanel>
+                                </DockPanel>
+                                <DockPanel Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.5, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type StackPanel}},Path=ActualWidth}"
+Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=1.0, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type StackPanel}},Path=ActualHeight}" >
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.8, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DockPanel}},Path=ActualWidth}">
+                                        <Border Width="64" Height="64" BorderThickness="1" BorderBrush="{StaticResource BorderColor}" Canvas.Left="10" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                            <Rectangle Fill="White" Width="64" Height="64" />
+                                        </Border>
+                                        <Rectangle Width="20" />
+                                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="{Binding NameTextSize}" FontFamily="{StaticResource DefaultFontFamily}" Text="{Binding SelectedCharacter.Class.Name}" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </DockPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
