@@ -9,8 +9,9 @@ code files located in Dragons/Dragons folder
 
 RUNNING THE PROGRAM:
 
-I published the .exe file as Framework-Dependent. Github would not allow me to upload a Self-Contained .exe as it was above the allowed file size.
+I published the .exe file as Framework-Dependent. The Self-Contained publish was generating a file that was over 100MB.
 
+The .exe can be found in the following folder:
 release/framework-dependent/Dragons.exe 
 
 
