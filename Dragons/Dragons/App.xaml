@@ -59,7 +59,7 @@
             <Setter Property="FontSize" Value="36" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-
+        
         <local:PercentageConverter x:Key="PercentageConverter" />
     </Application.Resources>
 </Application>

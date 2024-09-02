@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dragons")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+752b047affab40671d1c56ba1955f5891b42ad42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ac2431a2d53c0442b6df98d76c5f9a85e8afb65")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dragons")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dragons")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

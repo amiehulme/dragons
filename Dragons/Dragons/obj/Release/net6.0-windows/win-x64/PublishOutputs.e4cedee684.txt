@@ -1,0 +1,7 @@
+C:\dev\git\dragons\release\self-contained\Dragons.pdb
+C:\dev\git\dragons\release\self-contained\D3DCompiler_47_cor3.dll
+C:\dev\git\dragons\release\self-contained\PenImc_cor3.dll
+C:\dev\git\dragons\release\self-contained\PresentationNative_cor3.dll
+C:\dev\git\dragons\release\self-contained\vcruntime140_cor3.dll
+C:\dev\git\dragons\release\self-contained\wpfgfx_cor3.dll
+C:\dev\git\dragons\release\self-contained\Dragons.exe

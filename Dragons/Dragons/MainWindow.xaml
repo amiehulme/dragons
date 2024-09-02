@@ -15,10 +15,10 @@
         <Canvas Background="{StaticResource MainPanelBackground}" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.3, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualWidth}"
           Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.9, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualHeight}" HorizontalAlignment="Left" VerticalAlignment="Center">
             <DockPanel x:Name="SelectionPanel" Width="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.9, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Canvas}},Path=ActualWidth}"
-          Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=1.0, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Canvas}},Path=ActualHeight}" HorizontalAlignment="Left" Canvas.Left="24" VerticalAlignment="Center">
+          Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.92, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Canvas}},Path=ActualHeight}" HorizontalAlignment="Left" Canvas.Left="24" VerticalAlignment="Center">
                 <!-- Character Selection List -->
                 <ListView x:Name="CharacterList" Background="{StaticResource ListViewBackground}" ItemsSource="{Binding Characters}" SelectionChanged="ListView_SelectionChanged" HorizontalContentAlignment="Stretch">
-                    <ListView.ItemTemplate >
+                    <ListView.ItemTemplate>
                         <DataTemplate DataType="local:Character">
                             <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="2" CornerRadius="2">
                                 <StackPanel Orientation="Horizontal" Height="70" Margin="10,0,0,0">
@@ -52,7 +52,8 @@
 Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParameter=0.9, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Border}},Path=ActualHeight}" VerticalAlignment="Center" HorizontalAlignment="Center" Background="{StaticResource InfoPanelBackground}">
                         
                         <!-- Race and Class -->
-                        <TextBlock Style="{StaticResource SectionHeaderText}" Text="Race and Class:" />
+                        <TextBlock Style="{StaticResource SectionHeaderText}" Text="Race and Class:" Margin="5,0,0,0"/>
+                        <Canvas Height="3" />
                         <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="1" CornerRadius="4" >
                             <StackPanel Orientation="Horizontal" Height="120" >
                                 
@@ -101,8 +102,9 @@ Height="{Binding Converter={StaticResource PercentageConverter}, ConverterParame
                         </Border>
 
                         <!-- Ability Scores -->
-                        <Canvas Height="5" />
-                        <TextBlock Style="{StaticResource SectionHeaderText}" Text="Ability Scores:" />
+                        <Canvas Height="8" />
+                        <TextBlock Style="{StaticResource SectionHeaderText}" Text="Ability Scores:" Margin="5,0,0,0"/>
+                        <Canvas Height="3" />
                         <ListView x:Name="AbilityList" Background="{StaticResource ListViewBackground}" IsEnabled="False" ItemsSource="{Binding SelectedCharacter.Scores}" SelectionChanged="ListView_SelectionChanged" HorizontalContentAlignment="Stretch">
                             <ListView.ItemTemplate >
                                 <DataTemplate DataType="local:Character::AbilityScore">

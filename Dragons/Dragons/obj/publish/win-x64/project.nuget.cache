@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SkGnN3H+BUg=",
+  "success": true,
+  "projectFilePath": "C:\\dev\\git\\dragons\\Dragons\\Dragons\\Dragons.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Amie Hulme\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23401.1\\microsoft.net.illink.analyzers.7.0.100-1.23401.1.nupkg.sha512",
+    "C:\\Users\\Amie Hulme\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23401.1\\microsoft.net.illink.tasks.7.0.100-1.23401.1.nupkg.sha512"
+  ],
+  "logs": []
+}
